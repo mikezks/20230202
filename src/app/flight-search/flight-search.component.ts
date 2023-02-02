@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UiCommonModule } from 'ui-common';
 import { Flight } from '../entities/flight';
 import { FlightCardComponent } from '../flight-card/flight-card.component';
 
@@ -10,7 +11,8 @@ import { FlightCardComponent } from '../flight-card/flight-card.component';
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css'],
-  imports: [CommonModule, FormsModule, FlightCardComponent],
+  hostDirectives: [],
+  imports: [CommonModule, FormsModule, FlightCardComponent, UiCommonModule],
 })
 export class FlightSearchComponent {
   from = 'Hamburg';
