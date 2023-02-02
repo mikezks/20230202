@@ -7,6 +7,20 @@
     <app-navbar-cmp></app-navbar-cmp>
 
     <div class="content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title my-red-background">Flight 42 App</h2>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <button (click)="lazyLoadStyles()" class="btn btn-default">
+              Lazy Load Styles
+            </button>
+          </div>
+        </div>
+      </div>
+
       <app-flight-search></app-flight-search>
     </div>
   </div>

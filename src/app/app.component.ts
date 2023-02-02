@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { injectLazyStylesLoader } from './lazy-styles';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
@@ -12,6 +13,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 })
 export class AppComponent {
   title = 'Hello Angular!';
+  lazyLoadStyles = injectLazyStylesLoader();
 
   switchTitle(): void {
     this.title = 'My new title! :)';
