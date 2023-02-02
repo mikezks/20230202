@@ -3,20 +3,24 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Flight } from '../entities/flight';
+import { FlightCardComponent } from '../flight-card/flight-card.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule],
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css'],
+  imports: [CommonModule, FormsModule, FlightCardComponent],
 })
 export class FlightSearchComponent {
   from = 'Hamburg';
   to = 'Graz';
   flights: Flight[] = [];
-  selectedFlight?: Flight;
   #http = inject(HttpClient);
+  basket: Record<number, boolean> = {
+    3: true,
+    5: true,
+  };
 
   // constructor(private http: HttpClient) {}
 
@@ -28,9 +32,5 @@ export class FlightSearchComponent {
     this.#http
       .get<Flight[]>(url, { params })
       .subscribe((flights) => (this.flights = flights));
-  }
-
-  select(flight: Flight): void {
-    this.selectedFlight = this.selectedFlight === flight ? undefined : flight;
   }
 }
